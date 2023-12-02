@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive SQL Editor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #editor-container {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+
+        #output-container {
+            flex-basis: 300px;
+            padding: 1rem;
+            background-color: #f4f4f4;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SQL Editor</h1>
+    </header>
+
+    <main>
+       
+
+        <div id="output-container">
+            <h2>Output</h2>
+            <div id="query-output"></div>
+        </div>
+    
+        <div id="editor-container">
+            <textarea id="sql-editor" placeholder="Enter your SQL query here..."></textarea>
+            <button onclick="executeQuery()">Execute</button>
+        </div>
+    </main>
+
+    <script>
+        function executeQuery() {
+            // This is a placeholder function; you should implement the logic to execute SQL queries.
+            var sqlQuery = document.getElementById('sql-editor').value;
+            var outputContainer = document.getElementById('query-output');
+            
+            // Execute the query (replace this with your actual logic)
+            var queryResult = executeSQLQuery(sqlQuery);
+
+            // Display the result in the output container
+            outputContainer.innerHTML = queryResult;
+        }
+
+        function executeSQLQuery(query) {
+            // Placeholder function; replace this with actual logic to execute SQL queries
+            return "Query executed successfully:\n" + query;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../partials/head'); %>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        header {
+          background-color: lightblue;
+          text-align: center;
+          padding: 2px;
+          font-size: 25px;
+          color: white;
+        }
+        nav {
+          float: left;
+          width: 30%;
+          height: 100%;
+          background: #fff;
+          padding: 20px;
+        }
+        nav ul {
+          list-style-type: disc;
+          padding: 0;
+        }
+        article {
+          float: left;
+          padding: 20px;
+          width: 60%;
+          background-color: #f1f1f1;
+          height: 300px; 
+        }
+        footer {
+          background-color: lightblue;
+          padding: 10px;
+          text-align: center;
+          color: white;
+        }
+        section::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+      </style>
+</head>
+
+<body>
+    <header>
+        <h2>Title</h2>
+    </header>
+    <section>
+      <nav>
+        <!-- <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Learn HTML</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul> -->
+        <ul>
+            <% tablelist.forEach(function(data) { %>
+              <li>
+                <%= data.name %>
+              </li>
+            <% }); %>
+          </ul>
+      </nav>
+      <article>
+        <h1>Home</h1>
+        <p>This is a home page.</p>
+
+        <table id="example" class="display compact" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tablelist.forEach(function(data) { %>
+                <tr>
+                   
+                    <td>   <%= data.name %></td>
+                  
+                </tr>
+                <% }); %>
+            </tbody>
+            
+        </table>
+      </article>
+    </section>
+    <footer>
+        <%- include('../partials/footer'); %>
+      </footer>
+</body>
+<script>
+    new DataTable('#example');
+
+</script>
+
+
+
+</html>
